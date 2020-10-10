@@ -53,7 +53,6 @@ func _lose():
 
 func _on_ObstacleTimer_timeout():
 	_balloontime *= 0.95
-	print(str(_balloontime))
 	_obstacle_timer.start(_balloontime)
 	var obstacle = Obstacle.instance()
 	obstacle.position.x = 1024
