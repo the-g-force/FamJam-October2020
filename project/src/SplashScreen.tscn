@@ -49,6 +49,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SkyBlue" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.32549, 0.819608, 0.843137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TheGForcePresents" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5

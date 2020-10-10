@@ -5,6 +5,14 @@
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.32549, 0.819608, 0.843137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.5, 0 )
 motion_mirroring = Vector2( 1560, 0 )
@@ -18,5 +26,5 @@ motion_scale = Vector2( 0.75, 0 )
 motion_mirroring = Vector2( 2048, 0 )
 
 [node name="ground" type="Sprite" parent="ParallaxLayer2"]
-position = Vector2( 1024, 288 )
+position = Vector2( 1024, 300.473 )
 texture = ExtResource( 2 )
