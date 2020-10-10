@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/ui_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/NotoSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/balloon.png" type="Texture" id=3]
 [ext_resource path="res://assets/clouds.png" type="Texture" id=4]
 [ext_resource path="res://src/SplashScreen.gd" type="Script" id=5]
 
@@ -94,6 +95,10 @@ anims/FadeToBlack = SubResource( 3 )
 [node name="clouds" type="Sprite" parent="."]
 position = Vector2( -672.321, 196.068 )
 texture = ExtResource( 4 )
+
+[node name="balloon" type="Sprite" parent="."]
+position = Vector2( 730.217, 223.752 )
+texture = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
