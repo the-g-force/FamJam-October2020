@@ -24,5 +24,5 @@ func _input(event):
 		_is_up = false
 
 
-func _draw():
-	draw_rect(Rect2(Vector2(-20,-10), $CollisionShape2D.shape.extents*2), Color.white)
+func set_image(image) -> void:
+	$Sprite.texture = image

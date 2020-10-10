@@ -11,7 +11,7 @@ extents = Vector2( 96, 8 )
 script = ExtResource( 2 )
 
 [node name="Plane" parent="." instance=ExtResource( 1 )]
-position = Vector2( 100, 150 )
+position = Vector2( 100, 243.338 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -24,7 +24,7 @@ shape = SubResource( 1 )
 [node name="Wall2" type="Area2D" parent="Walls"]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall2"]
-position = Vector2( 96, 312 )
+position = Vector2( 96, 607.167 )
 shape = SubResource( 1 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]

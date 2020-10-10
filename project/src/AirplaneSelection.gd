@@ -1,10 +1,14 @@
 extends Control
 
+const Level := preload("res://src/Level.tscn")
+
 var _images := [
-	preload("res://assets/Planes/TestPlane.png")
+	preload("res://assets/Planes/b-29-D.png"),
+	preload("res://assets/Planes/plane-Leo.png")
 ]
 
-onready var _button_container := $ButtonContainer
+onready var _button_container := $VBoxContainer/ButtonContainer
+
 
 func _ready():
 	for plane in _images:
@@ -15,4 +19,7 @@ func _ready():
 		
 		
 func _on_Button_pressed(texture):
-	print('Pressed ' + str(texture))
+	var level := Level.instance()
+	level.set_plane_image(texture)
+	add_child(level)
+	$VBoxContainer.visible = false
