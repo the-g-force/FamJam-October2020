@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/fonts/ui_font.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 72
 outline_size = 3
 outline_color = Color( 0.913725, 0.847059, 0.141176, 1 )
 font_data = ExtResource( 2 )
@@ -30,24 +30,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 104.0
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 48.0
 margin_right = 1024.0
-margin_bottom = 173.0
+margin_bottom = 157.0
+custom_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 77.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.623529, 0.137255, 0.129412, 1 )
 text = "The Flying Planes"
 align = 1
 
 [node name="ButtonContainer" type="GridContainer" parent="VBoxContainer"]
-margin_left = 106.0
-margin_top = 177.0
-margin_right = 918.0
-margin_bottom = 365.0
+margin_left = 52.0
+margin_top = 161.0
+margin_right = 972.0
+margin_bottom = 421.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 5
+custom_constants/vseparation = 40
+custom_constants/hseparation = 40
 columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,9 +62,9 @@ __meta__ = {
 
 [node name="MuteButton" type="CheckButton" parent="VBoxContainer"]
 margin_left = 401.0
-margin_top = 369.0
+margin_top = 425.0
 margin_right = 623.0
-margin_bottom = 430.0
+margin_bottom = 486.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 3 )
 text = "Mute Music"
@@ -65,9 +72,9 @@ align = 1
 
 [node name="FullscreenButton" type="CheckButton" parent="VBoxContainer"]
 margin_left = 402.0
-margin_top = 434.0
+margin_top = 490.0
 margin_right = 622.0
-margin_bottom = 495.0
+margin_bottom = 551.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 3 )
