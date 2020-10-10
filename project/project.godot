@@ -21,13 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="FamJam-October2020"
-run/main_scene="res://src/Level.tscn"
+run/main_scene="res://src/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Score="*res://src/Score.gd"
-Jukebox="*res://src/Jukebox.tscn"
 
 [display]
 
