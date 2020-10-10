@@ -26,3 +26,8 @@ func _input(event):
 
 func set_image(image) -> void:
 	$Sprite.texture = image
+
+
+func _on_AliveTimer_timeout() -> void:
+	Score.score += 1
+	print('Debug score output: ' + str(Score.score))
