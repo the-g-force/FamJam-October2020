@@ -15,6 +15,7 @@ extents = Vector2( 96, 8 )
 script = ExtResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="Walls" type="Node2D" parent="."]
 

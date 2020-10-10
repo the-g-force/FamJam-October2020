@@ -7,6 +7,7 @@ const MIN_SPEED := 150
 const MAX_SPEED := 250
 
 export var slidespeed := 100.0
+export var points_per_unit := 0.03
 
 var _player : Player
 var _playing := false
@@ -24,6 +25,7 @@ func _process(delta):
 	$ParallaxBackground.scroll_offset.x -= slidespeed/2.0 * delta
 	if _playing:
 		_speed = lerp(MIN_SPEED, MAX_SPEED, cos(_player.rotation))
+		Score.score += _speed * points_per_unit * delta
 		for obstacle in _obstacles.get_children():
 			obstacle.position.x -= _speed * delta
 
