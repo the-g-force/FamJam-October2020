@@ -33,7 +33,7 @@ func _on_Button_pressed(texture):
 
 
 func _on_MuteButton_pressed():
-	$Jukebox.toggle_mute()
+	Jukebox.toggle_mute()
 
 
 func _on_FullscreenButton_pressed():

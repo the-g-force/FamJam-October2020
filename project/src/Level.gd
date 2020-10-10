@@ -30,6 +30,10 @@ onready var _explosion_sound := $ExplosionSound
 onready var _star_timer := $StarTimer
 
 
+func _ready():
+	Jukebox.play()
+
+
 func _process(delta):
 	$ParallaxBackground.scroll_offset.x -= slidespeed/2.0 * delta
 	if _playing:

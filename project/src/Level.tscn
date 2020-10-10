@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/explosion.wav" type="AudioStream" id=1]
 [ext_resource path="res://src/Level.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://src/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/GameOver.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/AirplaneSelection.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Jukebox.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 8 )
@@ -53,8 +52,6 @@ margin_bottom = 600.0
 [node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 bus = "SFX"
-
-[node name="Jukebox" parent="." instance=ExtResource( 8 )]
 
 [node name="StarTimer" type="Timer" parent="."]
 wait_time = 1.5

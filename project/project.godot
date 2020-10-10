@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Score="*res://src/Score.gd"
+Jukebox="*res://src/Jukebox.tscn"
 
 [display]
 
