@@ -3,6 +3,7 @@ extends Node2D
 const Obstacle := preload("res://src/Obstacle.tscn")
 const PlayerScene := preload("res://src/Player.tscn")
 const Explosion := preload("res://Explosion.tscn")
+const Star := preload("res://src/Star.tscn")
 const MIN_SPEED := 150
 const MAX_SPEED := 250
 
@@ -49,20 +50,35 @@ func _on_ObstacleTimer_timeout():
 		var obstacle = Obstacle.instance()
 		obstacle.position.x = 1024
 		_obstacles.add_child(obstacle)
-		var pos := randi()%3
-		match pos:
-			0:
-				obstacle.position.y = 50
-			1:
-				obstacle.position.y = 150
-			2:
-				obstacle.position.y = 250
+		set_location(obstacle)
 		obstacle.connect("dead", self, "_on_body_entered", [], CONNECT_ONESHOT)
+#	var stars := randi()%3
+#	if stars == 2:
+		var star = Star.instance()
+		star.position.x = 1024
+		_obstacles.add_child(star)
+		set_location(star)
+		star.connect("pickup", self, "_pickup")
 
 
 func _on_body_entered(body):
 	if body is Player:
 		_lose()
+
+
+func _pickup():
+	Score.score += 5
+
+
+func set_location(item):
+	var pos := randi()%3
+	match pos:
+		0:
+			item.position.y = 50
+		1:
+			item.position.y = 150
+		2:
+			item.position.y = 250
 
 
 func _on_GameOver_play_again():
