@@ -45,10 +45,8 @@ margin_right = 551.169
 margin_bottom = 309.139
 
 [node name="AirplaneSelection" parent="." instance=ExtResource( 6 )]
-margin_left = 380.546
-margin_top = 235.463
-margin_right = 380.546
-margin_bottom = 235.463
+margin_right = 1024.0
+margin_bottom = 600.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

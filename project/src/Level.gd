@@ -12,6 +12,7 @@ onready var _obstacles := $Obstacles
 onready var _obstacle_timer := $ObstacleTimer
 onready var _game_over := $GameOver
 onready var _airplane_selection := $AirplaneSelection
+onready var _hud := $HUD
 
 
 func _process(delta):
@@ -52,6 +53,7 @@ func _on_body_entered(body):
 
 
 func _on_GameOver_play_again():
+	_hud.visible = false
 	for obstacle in _obstacles.get_children():
 		_obstacles.remove_child(obstacle)
 	_game_over.visible = false
@@ -60,6 +62,7 @@ func _on_GameOver_play_again():
 
 func _on_AirplaneSelection_airplane_selected(texture):
 	Score.score = 0
+	_hud.visible = true
 	_airplane_selection.visible = false
 	_player = PlayerScene.instance()
 	_player.set_image(texture)
