@@ -2,7 +2,8 @@
 
 [ext_resource path="res://src/Plane.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 10 )
 
 [node name="Plane" type="KinematicBody2D"]
 script = ExtResource( 1 )

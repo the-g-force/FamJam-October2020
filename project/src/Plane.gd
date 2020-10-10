@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
-export var driftspeed := 50
+export var driftspeed := 200
 
 var _is_up := false
 
 func _physics_process(delta):
-	var dirmod := 1
-	if _is_up:
-		dirmod = -1
-	elif not _is_up:
-		dirmod = 1
-	var _error = move_and_collide(Vector2(0, driftspeed)*dirmod*delta)
+	if _is_up and rotation_degrees > -90:
+		rotation_degrees -= 1
+	elif not _is_up and rotation_degrees < 90:
+		rotation_degrees += 1
+	var speed = rotation_degrees/90
+	var _error = move_and_collide(Vector2(0,driftspeed)*speed*delta)
 
 
 func _input(event):
@@ -22,4 +22,4 @@ func _input(event):
 
 
 func _draw():
-	draw_circle(position, $CollisionShape2D.shape.radius, Color.white)
+	draw_rect(Rect2(position, $CollisionShape2D.shape.extents), Color.white)
