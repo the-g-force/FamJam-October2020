@@ -24,4 +24,4 @@ func _input(event):
 
 
 func _draw():
-	draw_rect(Rect2(global_position, $CollisionShape2D.shape.extents), Color.white)
+	draw_rect(Rect2(Vector2(-20,-10), $CollisionShape2D.shape.extents*2), Color.white)
