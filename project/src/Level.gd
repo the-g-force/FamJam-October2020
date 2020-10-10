@@ -13,6 +13,7 @@ onready var _obstacle_timer := $ObstacleTimer
 onready var _game_over := $GameOver
 onready var _airplane_selection := $AirplaneSelection
 onready var _hud := $HUD
+onready var _explosion_sound := $ExplosionSound
 
 
 func _process(delta):
@@ -20,6 +21,7 @@ func _process(delta):
 
 
 func _lose():
+	_explosion_sound.play()
 	_game_over.visible = true
 	_obstacle_timer.stop()
 	var explosion := Explosion.instance()
