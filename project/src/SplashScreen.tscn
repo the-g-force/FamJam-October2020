@@ -93,7 +93,7 @@ anims/FadeIn = SubResource( 2 )
 anims/FadeToBlack = SubResource( 3 )
 
 [node name="clouds" type="Sprite" parent="."]
-position = Vector2( -672.321, 196.068 )
+position = Vector2( 507.516, 116.872 )
 texture = ExtResource( 4 )
 
 [node name="balloon" type="Sprite" parent="."]
