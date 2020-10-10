@@ -2,9 +2,15 @@ extends Area2D
 
 signal pickup
 
+onready var pickup := $AudioStreamPlayer2D
+onready var sprite := $Sprite
+onready var particles := $CPUParticles2D
+onready var timer := $Timer
+
 export var _rotation_speed := 0.5
 
 func _ready():
+	particles.emitting = false
 	var _rotate := randi()%2
 	if _rotate == 0:
 		_rotation_speed *= -1
@@ -17,4 +23,11 @@ func _process(_delta):
 func _on_Star_body_entered(body):
 	if body is Player:
 		emit_signal("pickup")
-		queue_free()
+		pickup.play()
+		particles.emitting = true
+		sprite.hide()
+		timer.start()
+
+
+func _on_Timer_timeout():
+	queue_free()
