@@ -30,3 +30,17 @@ columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MuteButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 22.0
+margin_right = 237.0
+margin_bottom = 62.0
+text = "Mute Music"
+
+[node name="FullscreenButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 66.0
+margin_right = 237.0
+margin_bottom = 106.0
+text = "Full Screen"
+[connection signal="pressed" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]

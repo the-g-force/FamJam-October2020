@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://assets/the_famous_song.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/Level.gd" type="Script" id=2]
 [ext_resource path="res://src/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/HUD.tscn" type="PackedScene" id=4]
@@ -48,6 +49,10 @@ margin_left = 380.546
 margin_top = 235.463
 margin_right = 380.546
 margin_bottom = 235.463
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 [connection signal="body_entered" from="Walls/Wall1" to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Walls/Wall2" to="." method="_on_body_entered"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_ObstacleTimer_timeout"]

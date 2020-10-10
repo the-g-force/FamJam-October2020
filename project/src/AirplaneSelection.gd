@@ -20,3 +20,11 @@ func _ready():
 		
 func _on_Button_pressed(texture):
 	emit_signal("airplane_selected", texture)
+
+
+func _on_MuteButton_pressed():
+	Jukebox.toggle_mute()
+
+
+func _on_FullscreenButton_pressed():
+	OS.window_fullscreen = not OS.window_fullscreen
