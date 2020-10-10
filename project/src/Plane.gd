@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 export var driftspeed := 200
@@ -11,6 +12,7 @@ func _physics_process(delta):
 		rotation_degrees += 1
 	var speed = rotation_degrees/90
 	var _error = move_and_collide(Vector2(0,driftspeed)*speed*delta)
+	update()
 
 
 func _input(event):
@@ -22,4 +24,4 @@ func _input(event):
 
 
 func _draw():
-	draw_rect(Rect2(position, $CollisionShape2D.shape.extents), Color.white)
+	draw_rect(Rect2(global_position, $CollisionShape2D.shape.extents), Color.white)
