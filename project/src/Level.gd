@@ -3,10 +3,13 @@ extends Node2D
 const Obstacle := preload("res://src/Obstacle.tscn")
 const PlayerScene := preload("res://src/Player.tscn")
 const Explosion := preload("res://Explosion.tscn")
+const MAX_SPEED := 300.0
 
 export var slidespeed := 100.0
 
 var _player : Player
+var _playing := false
+var _speed : float
 
 onready var _obstacles := $Obstacles
 onready var _obstacle_timer := $ObstacleTimer
@@ -18,9 +21,14 @@ onready var _explosion_sound := $ExplosionSound
 
 func _process(delta):
 	$ParallaxBackground.scroll_offset.x -= slidespeed/2.0 * delta
+	if _playing:
+		_speed = lerp(150,250, cos(_player.rotation))
+		for obstacle in _obstacles.get_children():
+			obstacle.position.x -= _speed * delta
 
 
 func _lose():
+	_playing = false
 	_explosion_sound.play()
 	_game_over.visible = true
 	_obstacle_timer.stop()
@@ -71,3 +79,4 @@ func _on_AirplaneSelection_airplane_selected(texture):
 	_player.position = Vector2(120,300)	
 	add_child(_player)
 	_obstacle_timer.start()
+	_playing = true

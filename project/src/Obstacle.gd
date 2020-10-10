@@ -6,10 +6,7 @@ export var slidespeed := 100
 
 
 func _process(delta):
-	if position.x > -50:
-		position.x -= slidespeed*delta
-		update()
-	else:
+	if position.x < -50:
 		queue_free()
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/explosion.wav" type="AudioStream" id=1]
 [ext_resource path="res://src/Level.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/GameOver.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/AirplaneSelection.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Obstacle.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 8 )
@@ -32,6 +33,9 @@ shape = SubResource( 1 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 
 [node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource( 7 )]
+position = Vector2( 561.306, 247.355 )
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 0.5
