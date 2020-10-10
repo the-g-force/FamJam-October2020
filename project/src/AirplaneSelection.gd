@@ -25,7 +25,7 @@ func _ready():
 		var button := TextureButton.new()
 		button.texture_normal = plane
 		_button_container.add_child(button)
-		var _ignored := button.connect("pressed", self, "_on_Button_pressed", [plane], CONNECT_ONESHOT)
+		var _ignored := button.connect("pressed", self, "_on_Button_pressed", [plane])
 		
 		
 func _on_Button_pressed(texture):
