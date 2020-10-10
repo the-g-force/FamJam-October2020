@@ -19,13 +19,7 @@ func _process(delta):
 	$ParallaxBackground.scroll_offset.x -= slidespeed/2.0 * delta
 
 
-func _on_Wall1_body_entered(body):
-	if body is Player:
-		emit_signal("dead")
-		_restart()
-
-
-func _on_Wall2_body_entered(body):
+func _lose(body):
 	if body is Player:
 		emit_signal("dead")
 		_restart()
@@ -47,3 +41,4 @@ func _on_ObstacleTimer_timeout():
 				obstacle.position.y = 150
 			2:
 				obstacle.position.y = 250
+		obstacle.connect("dead", self, "_lose")

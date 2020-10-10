@@ -1,5 +1,7 @@
 extends Area2D
 
+signal dead(body)
+
 export var slidespeed := 100
 
 
@@ -12,4 +14,9 @@ func _process(delta):
 
 
 func _draw():
-	draw_rect(Rect2($CollisionShape2D.shape.extents*-1, $CollisionShape2D.shape.extents*2), Color.black)
+	draw_rect(Rect2(Vector2.ZERO, $CollisionShape2D.shape.extents*2), Color.black)
+
+
+func _on_Obstacle_body_entered(body):
+	if body is Player:
+		emit_signal("dead", body)
