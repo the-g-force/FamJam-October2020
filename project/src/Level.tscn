@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Plane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level.gd" type="Script" id=2]
+[ext_resource path="res://src/Background.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 8 )
@@ -25,5 +26,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls/Wall2"]
 position = Vector2( 96, 312 )
 shape = SubResource( 1 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
 [connection signal="body_entered" from="Walls/Wall1" to="." method="_on_Wall1_body_entered"]
 [connection signal="body_entered" from="Walls/Wall2" to="." method="_on_Wall2_body_entered"]
