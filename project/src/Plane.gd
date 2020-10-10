@@ -10,7 +10,7 @@ func _physics_process(delta):
 		dirmod = -1
 	elif not _is_up:
 		dirmod = 1
-	move_and_collide(Vector2(0, driftspeed)*dirmod*delta)
+	var _error = move_and_collide(Vector2(0, driftspeed)*dirmod*delta)
 
 
 func _input(event):
