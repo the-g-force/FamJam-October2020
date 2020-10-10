@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="FamJam-October2020"
+config/name="The Flying Planes"
 run/main_scene="res://src/SplashScreen.tscn"
 config/icon="res://icon.png"
 
