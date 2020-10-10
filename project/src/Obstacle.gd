@@ -3,7 +3,7 @@ extends Area2D
 signal dead(body)
 
 
-func _process(delta):
+func _process(_delta):
 	if position.x < -50:
 		queue_free()
 
