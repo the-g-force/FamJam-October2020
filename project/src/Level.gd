@@ -4,15 +4,22 @@ const Obstacle := preload("res://src/Obstacle.tscn")
 const PlayerScene := preload("res://src/Player.tscn")
 const Explosion := preload("res://Explosion.tscn")
 const Star := preload("res://src/Star.tscn")
+const TIME_BETWEEN_BALLOONS := 3
+const TIME_BETWEEN_STARS := 4
 const MIN_SPEED := 150
 const MAX_SPEED := 250
+const MAX_HEIGHT := 85
+const MIN_HEIGHT := 510
 
 export var slidespeed := 100.0
 export var points_per_unit := 0.03
+export var star_points := 50
 
 var _player : Player
 var _playing := false
 var _speed : float
+var _balloontime : float = TIME_BETWEEN_BALLOONS
+var _startime : float = TIME_BETWEEN_STARS
 
 onready var _obstacles := $Obstacles
 onready var _obstacle_timer := $ObstacleTimer
@@ -20,6 +27,7 @@ onready var _game_over := $GameOver
 onready var _airplane_selection := $AirplaneSelection
 onready var _hud := $HUD
 onready var _explosion_sound := $ExplosionSound
+onready var _star_timer := $StarTimer
 
 
 func _process(delta):
@@ -36,6 +44,7 @@ func _lose():
 	_explosion_sound.play()
 	_game_over.visible = true
 	_obstacle_timer.stop()
+	_star_timer.stop()
 	var explosion := Explosion.instance()
 	explosion.position = _player.position
 	add_child(explosion)
@@ -43,22 +52,14 @@ func _lose():
 
 
 func _on_ObstacleTimer_timeout():
-	var time := rand_range(1,3)
-	_obstacle_timer.start(time)
-	var obstacle_number := randi()%2 + 1
-	for _i in obstacle_number:
-		var obstacle = Obstacle.instance()
-		obstacle.position.x = 1024
-		_obstacles.add_child(obstacle)
-		set_location(obstacle)
-		obstacle.connect("dead", self, "_on_body_entered", [], CONNECT_ONESHOT)
-#	var stars := randi()%3
-#	if stars == 2:
-		var star = Star.instance()
-		star.position.x = 1024
-		_obstacles.add_child(star)
-		set_location(star)
-		star.connect("pickup", self, "_pickup")
+	_balloontime *= 0.95
+	print(str(_balloontime))
+	_obstacle_timer.start(_balloontime)
+	var obstacle = Obstacle.instance()
+	obstacle.position.x = 1024
+	_obstacles.add_child(obstacle)
+	set_location(obstacle)
+	obstacle.connect("dead", self, "_on_body_entered", [], CONNECT_ONESHOT)
 
 
 func _on_body_entered(body):
@@ -67,18 +68,11 @@ func _on_body_entered(body):
 
 
 func _pickup():
-	Score.score += 5
+	Score.score += star_points
 
 
 func set_location(item):
-	var pos := randi()%3
-	match pos:
-		0:
-			item.position.y = 50
-		1:
-			item.position.y = 150
-		2:
-			item.position.y = 250
+	item.position.y = lerp(MIN_HEIGHT, MAX_HEIGHT, randf())
 
 
 func _on_GameOver_play_again():
@@ -97,5 +91,18 @@ func _on_AirplaneSelection_airplane_selected(texture):
 	_player.set_image(texture)
 	_player.position = Vector2(120,300)	
 	add_child(_player)
+	_balloontime = TIME_BETWEEN_BALLOONS
+	_startime = TIME_BETWEEN_STARS
 	_obstacle_timer.start()
+	_star_timer.start()
 	_playing = true
+
+
+func _on_StarTimer_timeout():
+	_startime *= 1.05
+	_star_timer.start(_startime)
+	var star = Star.instance()
+	star.position.x = 1024
+	_obstacles.add_child(star)
+	set_location(star)
+	star.connect("pickup", self, "_pickup")
