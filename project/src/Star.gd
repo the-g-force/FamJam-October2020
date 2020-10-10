@@ -6,6 +6,7 @@ onready var pickup := $AudioStreamPlayer2D
 onready var sprite := $Sprite
 onready var particles := $CPUParticles2D
 onready var timer := $Timer
+onready var collider := $CollisionShape2D
 
 export var _rotation_speed := 0.5
 
@@ -27,6 +28,7 @@ func _on_Star_body_entered(body):
 		particles.emitting = true
 		sprite.hide()
 		timer.start()
+		collider.call_deferred("set","disabled", true)
 
 
 func _on_Timer_timeout():
