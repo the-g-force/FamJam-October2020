@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/b-29-D.png-82e56f051354547210f3ac7ce8baef0f.stex"
+path="res://.import/plane0D.png-6ba6bce51ce0a3a00cc9cee2616a3ec8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/b-29-D.png"
-dest_files=[ "res://.import/b-29-D.png-82e56f051354547210f3ac7ce8baef0f.stex" ]
+source_file="res://assets/Planes/plane0D.png"
+dest_files=[ "res://.import/plane0D.png-6ba6bce51ce0a3a00cc9cee2616a3ec8.stex" ]
 
 [params]
 
