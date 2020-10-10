@@ -2,6 +2,9 @@ extends Area2D
 
 signal dead(body)
 
+func _ready():
+	$Sprite.frame = randi() % 8
+	
 
 func _process(_delta):
 	if position.x < -50:

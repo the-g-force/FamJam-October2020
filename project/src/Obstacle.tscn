@@ -22,4 +22,6 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+vframes = 2
+hframes = 4
 [connection signal="body_entered" from="." to="." method="_on_Obstacle_body_entered"]

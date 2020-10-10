@@ -99,6 +99,8 @@ texture = ExtResource( 4 )
 [node name="balloon" type="Sprite" parent="."]
 position = Vector2( 730.217, 223.752 )
 texture = ExtResource( 3 )
+vframes = 2
+hframes = 4
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )

@@ -11,5 +11,4 @@ func _input(event):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "FadeToBlack":
-		var game := Game.instance()
 		var _ignored := get_tree().change_scene_to(Game)
