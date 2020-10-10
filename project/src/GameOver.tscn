@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/GameOver.gd" type="Script" id=1]
+
+[node name="GameOver" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "YOU GARAGE"
+align = 1
+
+[node name="PlayAgainButton" type="Button" parent="."]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 38.0
+text = "Play Again"
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]

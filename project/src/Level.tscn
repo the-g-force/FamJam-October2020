@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://src/Plane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Level.gd" type="Script" id=2]
 [ext_resource path="res://src/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/GameOver.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/AirplaneSelection.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 96, 8 )
@@ -12,9 +13,6 @@ extents = Vector2( 96, 8 )
 script = ExtResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
-
-[node name="Plane" parent="." instance=ExtResource( 1 )]
-position = Vector2( 100, 243.338 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -37,7 +35,21 @@ shape = SubResource( 1 )
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
-autostart = true
-[connection signal="body_entered" from="Walls/Wall1" to="." method="_lose"]
-[connection signal="body_entered" from="Walls/Wall2" to="." method="_lose"]
+
+[node name="GameOver" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_left = 466.169
+margin_top = 271.139
+margin_right = 551.169
+margin_bottom = 309.139
+
+[node name="AirplaneSelection" parent="." instance=ExtResource( 6 )]
+margin_left = 380.546
+margin_top = 235.463
+margin_right = 380.546
+margin_bottom = 235.463
+[connection signal="body_entered" from="Walls/Wall1" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Walls/Wall2" to="." method="_on_body_entered"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_ObstacleTimer_timeout"]
+[connection signal="play_again" from="GameOver" to="." method="_on_GameOver_play_again"]
+[connection signal="airplane_selected" from="AirplaneSelection" to="." method="_on_AirplaneSelection_airplane_selected"]

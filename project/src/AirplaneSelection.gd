@@ -1,6 +1,6 @@
 extends Control
 
-const Level := preload("res://src/Level.tscn")
+signal airplane_selected(texture)
 
 var _images := [
 	preload("res://assets/Planes/b-29-D.png"),
@@ -19,7 +19,4 @@ func _ready():
 		
 		
 func _on_Button_pressed(texture):
-	var level := Level.instance()
-	level.set_plane_image(texture)
-	add_child(level)
-	$VBoxContainer.visible = false
+	emit_signal("airplane_selected", texture)
