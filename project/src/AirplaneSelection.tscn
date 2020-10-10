@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/AirplaneSelection.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/FasterOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/ui_font.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 3
+outline_color = Color( 0.913725, 0.847059, 0.141176, 1 )
+font_data = ExtResource( 2 )
 
 [node name="AirplaneSelection" type="Control"]
 anchor_right = 1.0
@@ -23,18 +31,19 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 153.0
+margin_top = 125.0
 margin_right = 1024.0
-margin_bottom = 167.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "The Name of the Game or Something"
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.623529, 0.137255, 0.129412, 1 )
+text = "The Flying Planes"
 align = 1
 
 [node name="ButtonContainer" type="GridContainer" parent="VBoxContainer"]
 margin_left = 106.0
-margin_top = 171.0
+margin_top = 198.0
 margin_right = 918.0
-margin_bottom = 359.0
+margin_bottom = 386.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -45,21 +54,23 @@ __meta__ = {
 }
 
 [node name="MuteButton" type="CheckButton" parent="VBoxContainer"]
-margin_left = 434.0
-margin_top = 363.0
-margin_right = 589.0
-margin_bottom = 403.0
+margin_left = 401.0
+margin_top = 390.0
+margin_right = 623.0
+margin_bottom = 430.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 3 )
 text = "Mute Music"
 align = 1
 
 [node name="FullscreenButton" type="CheckButton" parent="VBoxContainer"]
-margin_left = 437.0
-margin_top = 407.0
-margin_right = 587.0
-margin_bottom = 447.0
+margin_left = 402.0
+margin_top = 434.0
+margin_right = 622.0
+margin_bottom = 474.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+custom_fonts/font = ExtResource( 3 )
 text = "Full Screen"
 align = 1
 [connection signal="pressed" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_pressed"]
